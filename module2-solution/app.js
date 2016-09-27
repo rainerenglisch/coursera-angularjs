@@ -2,22 +2,28 @@
 'use strict';
 
 angular.module('ShoppingListCheckOffApp', [])
-.controller('ShoppingListToBuyController', ShoppingListToBuyController)
+.provider('ShoppingListAlreadyBoughtService', ShoppingListServiceProvider)
 .controller('ShoppingListAlreadyBoughtController', ShoppingListAlreadyBoughtController)
 .provider('ShoppingListToBuyService', ShoppingListServiceProvider)
-.provider('ShoppingListAlreadyBoughtService', ShoppingListServiceProvider)
-.config(Config);
+.controller('ShoppingListToBuyController', ShoppingListToBuyController)
+//.config(Config)
+;
 
-Config.$inject = ['ShoppingListServiceProvider'];
-function Config(ShoppingListServiceProvider) {
-  // Save Yaakov from himself
-  ShoppingListServiceProvider.defaults.maxItems = 2;
-}
+// Config.$inject = ['ShoppingListServiceProvider'];
+// function Config(ShoppingListServiceProvider) {
+//   // Save Yaakov from himself
+//   ShoppingListServiceProvider.defaults.maxItems = 2;
+// }
+//
 
-
-ShoppingListToBuyController.$inject = ['ShoppingListToBuyService','ShoppingListAlreadyBoughtController'];
-function ShoppingListToBuyController(ShoppingListToBuyService, ShoppingListAlreadyBoughtController) {
+ShoppingListToBuyController.$inject = ['ShoppingListToBuyService','ShoppingListAlreadyBoughtService'];
+function ShoppingListToBuyController(ShoppingListToBuyService,ShoppingListAlreadyBoughtService) {
   var list = this;
+  ShoppingListToBuyService.addItem("cookies","10");
+  ShoppingListToBuyService.addItem("cokes","10");
+  ShoppingListToBuyService.addItem("fantas","10");
+  ShoppingListToBuyService.addItem("chips","10");
+  ShoppingListToBuyService.addItem("french fries","10");
 
   list.items = ShoppingListToBuyService.getItems();
 
@@ -37,7 +43,8 @@ function ShoppingListToBuyController(ShoppingListToBuyService, ShoppingListAlrea
   };
 
   list.boughtItem = function (itemIndex) {
-    ShoppingListAlreadyBoughtController.addItem(list.items[itemIndex]);
+    var item = list.items[itemIndex];
+    ShoppingListAlreadyBoughtService.addItem(item.name,item.quantity);
     list.removeItem(itemIndex);
   };
 }
@@ -97,7 +104,7 @@ function ShoppingListServiceProvider() {
   var provider = this;
 
   provider.defaults = {
-    maxItems: 10
+    maxItems: undefined
   };
 
   provider.$get = function () {
