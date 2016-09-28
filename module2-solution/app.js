@@ -82,14 +82,5 @@ function ShoppingListCheckOffService() {
   };}
 
 
-function ShoppingListServiceProvider() {
-  var provider = this;
-
-  provider.$get = function () {
-    var shoppingList = new ShoppingListService();
-
-    return shoppingList;
-  };
-}
 
 })();
