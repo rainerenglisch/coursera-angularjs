@@ -1,15 +1,15 @@
 (function () {
 'use strict';
 
-angular.module('ShoppingListCheckOffApp', [])
+angular.module('ShoppingListCheckOff', [])
 .provider('ShoppingListAlreadyBoughtService', ShoppingListServiceProvider)
-.controller('ShoppingListAlreadyBoughtController', ShoppingListAlreadyBoughtController)
+.controller('AlreadyBoughtController', AlreadyBoughtController)
 .provider('ShoppingListToBuyService', ShoppingListServiceProvider)
-.controller('ShoppingListToBuyController', ShoppingListToBuyController)
+.controller('ToBuyController', ToBuyController)
 ;
 
-ShoppingListToBuyController.$inject = ['ShoppingListToBuyService','ShoppingListAlreadyBoughtService'];
-function ShoppingListToBuyController(ShoppingListToBuyService,ShoppingListAlreadyBoughtService) {
+ToBuyController.$inject = ['ShoppingListToBuyService','ShoppingListAlreadyBoughtService'];
+function ToBuyController(ShoppingListToBuyService,ShoppingListAlreadyBoughtService) {
   var list = this;
   ShoppingListToBuyService.addItem("cookies","7");
   ShoppingListToBuyService.addItem("cokes","4");
@@ -30,8 +30,8 @@ function ShoppingListToBuyController(ShoppingListToBuyService,ShoppingListAlread
   };
 }
 
-ShoppingListAlreadyBoughtController.$inject = ['ShoppingListAlreadyBoughtService'];
-function ShoppingListAlreadyBoughtController(ShoppingListAlreadyBoughtService) {
+AlreadyBoughtController.$inject = ['ShoppingListAlreadyBoughtService'];
+function AlreadyBoughtController(ShoppingListAlreadyBoughtService) {
   var list = this;
 
   list.items = ShoppingListAlreadyBoughtService.getItems();
