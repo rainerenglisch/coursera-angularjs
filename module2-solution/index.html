@@ -40,7 +40,7 @@
        </li>
 
      </ul>
-     <div ng-if="!listToBuy.items" class="emptyMessage">Everything is bought!{{listToBuy.items}}</div>
+     <div  ng-show="listToBuy.items.length==0" class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
@@ -49,7 +49,7 @@
      <ul>
        <li ng-repeat="item in listAlreadyBought.items">Bought {{item.quantity}} {{item.name}}</li>
      </ul>
-     <div ng-if="!listAlreadyBought.items" class="emptyMessage">Nothing bought yet.{{listAlreadyBought.items}}</div>
+     <div ng-show="listAlreadyBought.items.length==0" class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>

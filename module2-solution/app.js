@@ -6,15 +6,7 @@ angular.module('ShoppingListCheckOffApp', [])
 .controller('ShoppingListAlreadyBoughtController', ShoppingListAlreadyBoughtController)
 .provider('ShoppingListToBuyService', ShoppingListServiceProvider)
 .controller('ShoppingListToBuyController', ShoppingListToBuyController)
-//.config(Config)
 ;
-
-// Config.$inject = ['ShoppingListServiceProvider'];
-// function Config(ShoppingListServiceProvider) {
-//   // Save Yaakov from himself
-//   ShoppingListServiceProvider.defaults.maxItems = 2;
-// }
-//
 
 ShoppingListToBuyController.$inject = ['ShoppingListToBuyService','ShoppingListAlreadyBoughtService'];
 function ShoppingListToBuyController(ShoppingListToBuyService,ShoppingListAlreadyBoughtService) {
@@ -26,17 +18,6 @@ function ShoppingListToBuyController(ShoppingListToBuyService,ShoppingListAlread
   ShoppingListToBuyService.addItem("french fries","10");
 
   list.items = ShoppingListToBuyService.getItems();
-
-  // list.itemName = "";
-  // list.itemQuantity = "";
-  //
-  // // list.addItem = function () {
-  //   try {
-  //     ShoppingListToBuyService.addItem(list.itemName, list.itemQuantity);
-  //   } catch (error) {
-  //     list.errorMessage = error.message;
-  //   }
-  // };
 
   list.removeItem = function (itemIndex) {
     ShoppingListToBuyService.removeItem(itemIndex);
