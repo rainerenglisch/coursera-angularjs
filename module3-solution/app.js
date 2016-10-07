@@ -44,7 +44,7 @@ function NarrowItDownController(MenuSearchService) {
           var temp_menu_items = result.data.menu_items;
           narrow.menuItems = temp_menu_items.filter(
               function(value) {
-                return value.name.toLowerCase().includes(narrow.searchTerm.toLowerCase());
+                return value.description.toLowerCase().includes(narrow.searchTerm.toLowerCase());
               });
       });
     } else {narrow.menuItems=[];}
