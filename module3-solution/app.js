@@ -47,7 +47,7 @@ function NarrowItDownController(MenuSearchService) {
                 return value.name.includes(narrow.searchTerm);
               });
       });
-    }
+    } else {narrow.menuItems=[];}
   }
   narrow.removeItem = function (itemIndex) {
 //    MenuSearchService.removeItem(itemIndex);
