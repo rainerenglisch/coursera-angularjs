@@ -31,6 +31,17 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   });
- }
-
+  // itemsInCategoryList
+  // .state('itemsInCategoryList', {
+  //   url: '/category-list/items',
+  //   templateUrl: 'src/menuapp/templates/main-category.template.html',
+  //   controller: 'MainCategoryListController as categoryList',
+  //   resolve: {
+  //     categories: ['MenuDataService', function (MenuDataService) {
+  //       var promise = MenuDataService.getAllCategories();
+  //       return promise;
+  //     }]
+  //   }
+  // });
+}
 })();
