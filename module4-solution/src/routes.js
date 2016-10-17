@@ -25,8 +25,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/menuapp/templates/main-category.template.html',
     controller: 'MainCategoryListController as categoryList',
     resolve: {
-      items: ['MenuDataService', function (MenuDataService) {
-        return MenuDataService.getAllCategories();
+      categories: ['MenuDataService', function (MenuDataService) {
+        var promise = MenuDataService.getAllCategories();
+        return promise;
       }]
     }
   });

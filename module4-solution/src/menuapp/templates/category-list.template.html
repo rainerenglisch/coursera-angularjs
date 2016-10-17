@@ -1,5 +1,14 @@
-<ul>
-  <li ng-repeat="category in $ctrl.categories">
-     {{ category.name }}
-  </li>
-</ul>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th>Special Instructions</th>
+  </tr>
+  <tr ng-repeat="category in $ctrl.items">
+     <td>{{ category.id }}</td>
+     <td>{{category.name}}</td>
+     <td>{{category.short_name}}</td>
+     <td>{{category.special_instructions}}</td>
+  </tr>
+</table>
