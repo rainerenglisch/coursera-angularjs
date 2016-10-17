@@ -30,18 +30,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
         return promise;
       }]
     }
-  });
+  })
   // itemsInCategoryList
-  // .state('itemsInCategoryList', {
-  //   url: '/category-list/items',
-  //   templateUrl: 'src/menuapp/templates/main-category.template.html',
-  //   controller: 'MainCategoryListController as categoryList',
-  //   resolve: {
-  //     categories: ['MenuDataService', function (MenuDataService) {
-  //       var promise = MenuDataService.getAllCategories();
-  //       return promise;
-  //     }]
-  //   }
-  // });
+  .state('itemsInCategoryList', {
+    url: '/category-list/{categorySN}',
+    templateUrl: 'src/menuapp/templates/main-categoryItem.template.html',
+    controller: 'MainCategoryItemListController as itemList',
+    resolve: {
+      items: ['$stateParams', 'MenuDataService', function ($stateParams,MenuDataService) {
+        var promise = MenuDataService.getItemsForCategory($stateParams.categorySN);
+        return promise;
+      }]
+    }
+  });
 }
 })();
