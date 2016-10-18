@@ -5,10 +5,11 @@ angular.module('MenuApp')
 .controller('MainCategoryItemListController', MainCategoryItemListController);
 
 
-MainCategoryItemListController.$inject = ['items'];
-function MainCategoryItemListController(items) {
+MainCategoryItemListController.$inject = ['items','$stateParams'];
+function MainCategoryItemListController(items,$stateParams) {
   var itemList = this;
   itemList.items = items.data.menu_items;
+  itemList.categoryName = $stateParams.categoryName;
 
   // mainList.$onInit = function () {
   //   ShoppingListService.getItems()

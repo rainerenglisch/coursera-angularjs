@@ -6,7 +6,7 @@
     <th>Special Instructions</th>
   </tr>
   <tr ng-repeat="category in $ctrl.items">
-     <td ui-sref="itemsInCategoryList({categorySN:category.short_name})">{{ category.id }}</td>
+     <td><a ui-sref="itemsInCategoryList({categorySN:category.short_name, categoryName: category.name})">{{ category.id }}</a></td>
      <td>{{category.name}}</td>
      <td>{{category.short_name}}</td>
      <td>{{category.special_instructions}}</td>

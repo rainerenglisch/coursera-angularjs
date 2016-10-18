@@ -33,7 +33,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   })
   // itemsInCategoryList
   .state('itemsInCategoryList', {
-    url: '/category-list/{categorySN}',
+    url: '/category-list/{categorySN}/{categoryName}',
     templateUrl: 'src/menuapp/templates/main-categoryItem.template.html',
     controller: 'MainCategoryItemListController as itemList',
     resolve: {
