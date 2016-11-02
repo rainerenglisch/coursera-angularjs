@@ -1,0 +1,48 @@
+
+<fieldset>
+  <legend>Sign Up</legend>
+  <form name='formSignup' style="color:black" novalidate>
+  <input
+  type="text" name="firstname" placeholder="First name" ng-model="signupCtrl.firstname" required>
+  <span style="color:white" ng-if="formSignup.firstname.$error.required && formSignup.firstname.$touched">
+    First name is required
+  </span>
+  <br>
+
+  <input type="text" name="lastname" placeholder="Last name" ng-model="signupCtrl.lastname" required>
+  <span style="color:white" ng-if="formSignup.lastname.$error.required && formSignup.lastname.$touched">
+    Last name is required
+  </span>
+  <br>
+
+  <input type="email" name="email" placeholder="Email" ng-model="signupCtrl.email" required>
+  <span style="color:white" ng-if="formSignup.email.$invalid && formSignup.email.$touched">
+    Email is not vaid
+  </span>
+  <br>
+
+  <input type="text" name="phonenumber" placeholder="Phone ###-###-####"
+    ng-model="signupCtrl.phonenumber"  pattern="(\d{3})-(\d{3})-(\d{4})">
+    <br>
+
+  <span style="color:white" ng-if="formSignup.phonenumber.$invalid && formSignup.phonenumber.$touched">
+    Phone must be in the format ###-###-####.
+  </span>
+  <br>
+
+  <input type="text" name="favoritedish" placeholder="favorite dish" ng-model="signupCtrl.favoritedish" required>
+  <span style="color:white" ng-if="formSignup.favoritedish.$error.required && formSignup.favoritedish.$touched">
+    Favorite dish is required
+  </span>
+  <span style="color:white" ng-if="signupCtrl.notsuchmenunumber==true">
+    No such menu number exists.
+  </span>
+  <br>
+
+  <button ng-disabled="formSignup.$invalid" ng-click="signupCtrl.submit()" >Submit</Submit>
+</form>
+</fieldset>
+<span style="color:white" ng-if="signupCtrl.infosaved==true">
+  Your information has been saved.
+</span>
+<br>

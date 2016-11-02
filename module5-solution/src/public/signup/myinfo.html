@@ -1,0 +1,50 @@
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(1) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<span ng-if="!myInfo.registered">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</span>
+<table ng-if="myInfo.registered">
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>First name</td>
+    <td>{{myInfo.firstname}}</td>
+  </tr>
+  <tr>
+    <td>Last name</td>
+    <td>{{myInfo.lastname}}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{myInfo.email}}</td>
+  </tr>
+  <tr>
+    <td>Phone number</td>
+    <td>{{myInfo.phonenumber}}</td>
+  </tr>
+  <tr>
+    <td>Favorite dish</td>
+    <td>{{myInfo.favoritedish}}</td>
+  </tr>
+</table>
