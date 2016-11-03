@@ -18,7 +18,7 @@ function SignupStateController($http, UserService) {
     console.log($ctrl);
     $http({
       method: "GET",
-      url: "http://renglisch-course5.herokuapp.com/menu_items/"+$ctrl.favoritedish+".json"
+      url: "https://renglisch-course5.herokuapp.com/menu_items/"+$ctrl.favoritedish+".json"
     }).then(function(response) {
       console.log("success");
       console.log(response);
